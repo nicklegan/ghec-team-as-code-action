@@ -1,0 +1,15 @@
+name: 'ghec-team-as-code-action'
+description: Manage organization teams as code
+
+inputs:
+  repo-token:
+    description: 'A Personal Access Token (PAT) with admin:org and repo scopes'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+branding:
+  icon: user-plus
+  color: purple
