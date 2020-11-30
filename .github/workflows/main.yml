@@ -1,0 +1,21 @@
+name: Team as Code
+
+on:
+  pull_request:
+    branches-ignore: [main]
+    paths: ['**.csv']
+    types: [closed]
+
+jobs:
+  team_as_code:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Add or remove team members
+        uses: ./.github/team-as-code-action/ # Uses an action in the root directory
+        with:
+          repo-token: ${{ secrets.TEAM_AS_CODE_TOKEN }}
