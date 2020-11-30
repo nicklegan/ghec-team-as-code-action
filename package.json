@@ -1,0 +1,57 @@
+{
+  "name": "ghec-team-as-code-action",
+  "version": "0.0.1",
+  "description": "Manage organization teams as code",
+  "keywords": [],
+  "author": {
+    "name": "GitHub Professional Services",
+    "email": "services@github.com",
+    "url": "https://services.github.com"
+  },
+  "contributors": [
+    {
+      "name": "Nick Nagel",
+      "email": "nicklegan@github.com",
+      "url": "https://github.com/nicklegan"
+    },
+    {
+      "name": "Stefan Stölzle",
+      "email": "stoe@github.com",
+      "url": "https://github.com/stoe"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:nicklegan/ghec-team-as-code-action.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nicklegan/ghec-team-as-code-action/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js -m",
+    "pretest": "node node_modules/.bin/eslint-config-prettier .eslintrc.json",
+    "test": "eslint .",
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@github/prettier-config": "^0.0.4",
+    "@vercel/ncc": "^0.25.1",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-github": "^4.1.1"
+  },
+  "prettier": "@github/prettier-config"
+}
